@@ -1,0 +1,23 @@
+body{
+    font: 100% verdana;
+    margin: 20px;
+
+}
+ h1, h2, h3{
+     color: #4CAF50;
+
+ }
+
+ .item-menu{
+     background-color: #555555;
+     color: white;
+     list-style-type: none;
+     width: 165px;
+     cursor: pointer;
+     padding: 2px;
+     margin: 4px;
+     text-align: center;
+     float: left;
+     
+
+ }
