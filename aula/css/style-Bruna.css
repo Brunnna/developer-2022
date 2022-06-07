@@ -38,9 +38,15 @@ float: left;
 
 }
 
+
 .item-menu:hover{
- background-color: pink;
-}
+  color: white;
+  cursor: pointer;
+  }
+
+  .item-menu:hover{
+    background-color: pink;
+    }
 
 .item-menu:first-child{
 background-color:#eb89d7;
@@ -89,11 +95,6 @@ font-size: 70%;
 line-height: 14px;
 text-align: center;
 }
-
-#href{
- color:#eb89d7
-}
-
 
 #top,
 .item-menu,
