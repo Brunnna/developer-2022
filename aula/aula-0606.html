@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aula de Lógica de programação com JavaScript</title>
 
 </head>
 <body>
-    <h1>Aula de Lógica de programação com JavaScript</h1>
-
+    <h1 id="título">Aula de Lógica de programação com JavaScript</h1>
     <ul>
         <li>Fazer um Olá Mundo..</li>
         (é um peque programa que apenas tem a finalidade de mostrar uma msg)</li>
         <li>I/O ..E/S Input/output Entrada/Saída (de dados)<br>
+            Declaração de <b>Variaveis tipos [inteiro, decimal, texto, boolean]</b>
         </li>
-        <li>Funções</li>
-
+        <li>Funções (Parte do código que executamos no momento desejado)</li>
+        <li>Estrutura de condição (if, else, case)</li>
         <li>Laços de repetição</li>
         <li>Array (Listas)</li>
         <li>JSON</li>
 
     </ul>
-
-
-
-
-    
 
     <script>
         //alert("Olá Mundo JS  via alert");
@@ -35,7 +30,7 @@
         //document.getElementById("titulo").innerText = "Olá Mundo JS via getElementById";
 
         function changeTitle(){
-            document.gwtElementByI("titulo").
+            document.gwtElementByI("titulo").innerHTML = "Título modificado via <b> FUNCTION</b>"
         }
  </script> 
  <br>
@@ -43,16 +38,26 @@
  <br>
  <button onclick="changeTitle()">Mudar título</button>
  <br>
+ <button onclick="inpuTName()">Digitar o nome</button>
+ <br>
+ <button onclick="personalizeTitle()">Personalizar Título</button>
+ <br>
+
  <script>
-     document.write("Operações JS<br>");
+     document.write("Operações JS <br>");
      let n1=40;
      document.write(n1 + 5);
 
      function inpuTName() {
 
         let nome = prompt("Digite seu nome!");
-        alert("O nome digitado foi: "+nome);
+        alert("O nome digitado foi: " + nome);
 
+    }
+
+    function personalizeTitle(){
+       let newTitle = prompt('Digite o novo título');
+       document.getElementById("título").innerHTML = newTitle;
     }
 
     // DESAFIO de JS
