@@ -15,7 +15,7 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label for=""> Tarefa</label>
-                <input type="text" class="form-control" name="" id ="tarefa">
+                <input type="text" class="form-control" name="" id ="tarefa" value="">
             </div>
          </div>
          <div class="col-sm-1">
@@ -41,10 +41,17 @@
         </div>
     </div>
     <script>
-        function incluirTarefa(){
-            console.log('function incluirTarefa exec');
-            let tarefa = document.getElementById('tarefa').value;
 
+        let corpoTabela ='';
+        function incluirTarefa(){
+
+            
+            let tarefa = document.getElementById('tarefa').value;
+            console.log(`Nova tarefa ${tarefa}`);
+            let tbody= document.getElementsByTagName ('tbody')[0];
+            corpoTabela += `<tr><td>${tarefa}</td></tr>`;
+            tbody.innerHTML = corpoTabela;
+            document.getElementById('tarefa').value='';
         }
 
     </script>
