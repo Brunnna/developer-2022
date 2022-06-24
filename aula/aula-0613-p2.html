@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Lista de Tarefas</th>
@@ -41,17 +41,16 @@
         </div>
     </div>
     <script>
-
-        let corpoTabela ='';
-        function incluirTarefa(){
-
-            
+        let corpoTabela ='<tr><td>Limpar a casa</td></tr><tr><td>Lavar os pratos</td></tr><tr><td>Trocar Fralda</td></tr><tr><td>Estudar HTML CSS e JS</td></tr>';
+        document.querySelector('tbody').innerHTML = corpoTabela;
+        function incluirTarefa() {
             let tarefa = document.getElementById('tarefa').value;
             console.log(`Nova tarefa ${tarefa}`);
             let tbody= document.getElementsByTagName ('tbody')[0];
             corpoTabela += `<tr><td>${tarefa}</td></tr>`;
             tbody.innerHTML = corpoTabela;
             document.getElementById('tarefa').value='';
+            document.getElementsByTagName
         }
 
     </script>
