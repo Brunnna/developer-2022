@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de quiz</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
+
 <body>
     <style>
         h1{
@@ -26,7 +27,7 @@
          }
 
          h3:hover{
-            background-color: rgb(204,204,204);
+            background-color: #cccccc;
             cursor: pointer;
          }
          
@@ -58,13 +59,17 @@
             <span>D</span>
             Resposta
         </h3>
+        <div class="btn btn-primary" onclick="next()">
+            Next
+        </div>
+    </div>
         <script>
             
              
             function verificarResposta(i){
                 if(quiz.ponto >= 0) return;
 
-                document.querySelectorAll('h3')[i].style.backgroundColor = '#ff5555' ; 
+                document.querySelectorAll('h3')[i].style.backgroundColor = '#ff5555'; 
                 document.querySelectorAll('h3')[quiz.correta].style.backgroundColor = '#56c856'; 
                 if(i ==quiz.correta){
                     quiz.ponto= 1;
@@ -74,20 +79,49 @@
                 }
             }
 
-            let quiz= {
+            let IsPergunta = [
+                {
                 pergunta:"Qual foi o ultimo ano que o BR ganhou a copa?",
                 respostas: ["1970","2002","1962","1994"],
                 correta: 1
-
-            }
-
+                },
+                {
+                pergunta:"Qual o nome do ultimo presidente dos Estados Unidos?",
+                respostas: ["George Bush","Donald Trump","Joe Biden","Dwight Eisenhower"],
+                correta: 2
+                },
+                {
+                pergunta:"Qual é o maior planeta do sistema solar ?",
+                respostas: ["Júpiter","Saturno","Urano","Neturno"],
+                correta: 0
+                }
+            
+               ];
+               let quiz={};
+               function carregarQuiz(nPergunta){
+                quiz = IsPergunta[nPergunta];
             document.querySelector('h2').innerHTML = quiz.pergunta;
-
             for(let i = 0; i <4; i++){
+                document.querySelectorAll('h3')[i].style.backgroundColor = '#cccccc';
                 document.querySelectorAll('h3')[i].innerHTML = quiz.respostas[i];
                 let x=i;
                 document.querySelectorAll('h3')[i].addEventListener(
-                    'click', ()=>{verificarResposta(x)});
+                    'click', () => {verificarResposta(x) });
+               }
+            }
+            
+            let quizAtual = 0;
+            carregarQuiz(quizAtual);
+            function next(){
+                //console.log(quizAtual);
+                //console.log(IsPergunta.length-1);
+               // console.log(quizAtual == IsPergunta.length-1);
+                if(quiz.ponto == undefined){
+                    alert('Antes de ir para a próxima pergunta responda essa!');
+                    return;
+                }
+                if(quizAtual == IsPergunta.length-1) return;
+                carregarQuiz(++quizAtual);
             }
                 
 
@@ -97,10 +131,6 @@
             //document.querySelectorAll('h3')[2].innerHTML = quiz.respostas[2];
             //document.querySelectorAll('h3')[3].innerHTML = quiz.respostas[3];
         </script>
-    </div>
-
-
-
-    </div>
+    
 </body>
 </html>
