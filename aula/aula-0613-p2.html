@@ -15,13 +15,15 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label for=""> Tarefa</label>
-                <input type="text" class="form-control" name="" id ="tarefa" value="">
+                <input type="hidden" id="linha">
+                <input type="text" class="form-control" id ="tarefa" value="">
             </div>
          </div>
          <div class="col-sm-1">
             <br>
-            <button class="btn btn-success" onclick="incluirTarefa()">Incluir</button>
-         </div>
+            <button class="btn btn-success" onclick="incluirTarefa()">Gravar</button>
+            <button class="btn" onclick="novo()">Novo</button>
+        </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
@@ -43,15 +45,49 @@
     <script>
         let corpoTabela ='<tr><td>Limpar a casa</td></tr><tr><td>Lavar os pratos</td></tr><tr><td>Trocar Fralda</td></tr><tr><td>Estudar HTML CSS e JS</td></tr>';
         document.querySelector('tbody').innerHTML = corpoTabela;
+        onclickNasLinhas();
+
+
+        
+
+
         function incluirTarefa() {
+            let linha = document.getElementById('linha').value;
             let tarefa = document.getElementById('tarefa').value;
-            console.log(`Nova tarefa ${tarefa}`);
-            let tbody= document.getElementsByTagName ('tbody')[0];
+            if (linha != ''){
+              document.getElementsByTagName('td')[linha].innerHTML = tarefa;
+            } else{
+            console.log(`Nova tarefa $ {tarefa}`);
+            let tbody = document.getElementsByTagName('tbody')[0];
             corpoTabela += `<tr><td>${tarefa}</td></tr>`;
             tbody.innerHTML = corpoTabela;
-            document.getElementById('tarefa').value='';
-            document.getElementsByTagName
+            
+            }
+            novo();
+            onclickNasLinhas();
         }
+
+
+        function editar(tarefa, linha){
+            document.getElementById('tarefa').value = tarefa;
+            document.getElementById ('linha').value = linha;
+            onclickNasLinhas();
+        }
+
+        function onclickNasLinhas() {
+            qtLinhas = document.getElementsByName ('td').length
+            for (i = 0; i < qtLinhas; i++) {
+                let j = i;
+                document.getElementsByName ('td')[i].addEventListenner ('click', function());
+            }
+
+            }
+
+            function novo(){
+                document.getElementById('tarefa').value = '';
+            document.getElementById ('linha').value = '';
+            }
+            
 
     </script>
 </body>
